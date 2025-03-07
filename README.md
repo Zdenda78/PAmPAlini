@@ -46,7 +46,7 @@ The game lasts for 60 seconds.
 Game Over:
 After one minute, see your final score and ranking on the leaderboard.
 
-Falling hearts animation appears as a celebratory effect.
+Falling animal emoji animation appears as a celebratory effect.
 
 Choose "ANO" (Yes) to play again or "NE" (No) to exit with a thank-you message.
 
@@ -58,8 +58,6 @@ Storage: Uses localStorage to save leaderboards for Slow and Fast modes separate
 Compatibility: Works on modern browsers (Chrome, Firefox, Edge, etc.).
 
 Offline Mode: Features a fallback audio generator if no internet connection is available.
-
-Secret Feature: Type "0410" when the leaderboard is visible to reset it (use with caution!).
 
 Installation
 Download or clone the repository containing index.html.
@@ -80,4 +78,6 @@ This game is intended for personal enjoyment and educational purposes. Feel free
 Contact
 For feedback, suggestions, or bug reports, please reach out to Zdeněk Sába via [insert your preferred contact method if desired].
 Enjoy playing PAmPAlini!
+
+This README provides a concise yet comprehensive overview of your game, Zdeněk Sába. It’s structured to help players understand how to get started, what to expect, and who created it. Feel free to modify any part of this text to better suit your style or add personal details like a contact email if you'd like. Let me know if you'd like any adjustments!
 
