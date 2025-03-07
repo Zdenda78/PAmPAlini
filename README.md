@@ -79,5 +79,5 @@ Contact
 For feedback, suggestions, or bug reports, please reach out to Zdeněk Sába via [insert your preferred contact method if desired].
 Enjoy playing PAmPAlini!
 
-This README provides a concise yet comprehensive overview of your game, Zdeněk Sába. It’s structured to help players understand how to get started, what to expect, and who created it. Feel free to modify any part of this text to better suit your style or add personal details like a contact email if you'd like. Let me know if you'd like any adjustments!
+
 
