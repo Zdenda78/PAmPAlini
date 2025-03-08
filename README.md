@@ -82,7 +82,7 @@ Contact
 For feedback, suggestions, or bug reports, please reach out to Zdeněk Sába via [insert your preferred contact method if desired].
 Enjoy playing PAmPAlini!
 
-![PAmPAlini_by SabaZdenek 2025](https://github.com/user-attachments/assets/166e9d8e-946e-43a0-80a0-0f0c6fe984ba)
+
 
 
 
