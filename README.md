@@ -1,3 +1,4 @@
+![PAmPAliny by Saba Zdenek](https://github.com/user-attachments/assets/09846376-f3b6-4539-8347-8ab10d073c87)
 PAmPAlini - A Fun Target-Clicking Game
 Overview
 PAmPAlini is an engaging HTML5-based game created by Zdeněk Sába in 2025. The goal is simple yet addictive: click as many appearing icons as possible within one minute to achieve the highest score. With multilingual support, customizable icons, and two distinct game modes, PAmPAlini is designed to be enjoyable for players of all ages.
@@ -78,7 +79,7 @@ This game is intended for personal enjoyment and educational purposes. Feel free
 Contact
 For feedback, suggestions, or bug reports, please reach out to Zdeněk Sába via [insert your preferred contact method if desired].
 Enjoy playing PAmPAlini!
-![PAmPAliny by Saba Zdenek](https://github.com/user-attachments/assets/09846376-f3b6-4539-8347-8ab10d073c87)
+
 
 
 
