@@ -1,4 +1,5 @@
-![PAmPAlini Game by Zdenek Saba 2025](https://github.com/user-attachments/assets/b47e7bec-bbec-4a6f-85d8-a3cdcfda629c)
+![PAmPAlini](https://github.com/user-attachments/assets/4440bb46-3c4c-408c-85b6-d0d9d9981b54)
+
 
 
 PAmPAlini - A Fun Target-Clicking Game
