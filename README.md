@@ -78,6 +78,7 @@ This game is intended for personal enjoyment and educational purposes. Feel free
 Contact
 For feedback, suggestions, or bug reports, please reach out to Zdeněk Sába via [insert your preferred contact method if desired].
 Enjoy playing PAmPAlini!
+![PAmPAliny by Saba Zdenek](https://github.com/user-attachments/assets/09846376-f3b6-4539-8347-8ab10d073c87)
 
 
 
