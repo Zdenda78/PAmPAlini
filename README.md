@@ -1,6 +1,4 @@
-![PAmPAliny by Saba Zdenek](https://github.com/user-attachments/assets/09846376-f3b6-4539-8347-8ab10d073c87)
-
-
+![PAmPAliny by Saba Zdenek 2025](https://github.com/user-attachments/assets/2bed2f8d-9f0c-4d44-b5a0-3700d0f4b2cc)
 
 
 PAmPAlini - A Fun Target-Clicking Game
@@ -84,6 +82,7 @@ Contact
 For feedback, suggestions, or bug reports, please reach out to Zdeněk Sába via [insert your preferred contact method if desired].
 Enjoy playing PAmPAlini!
 
+![PAmPAlini_by SabaZdenek 2025](https://github.com/user-attachments/assets/166e9d8e-946e-43a0-80a0-0f0c6fe984ba)
 
 
 
