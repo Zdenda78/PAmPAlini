@@ -1,4 +1,4 @@
-![PAmPAlini Game by Saba Zdenek 2025](https://github.com/user-attachments/assets/8c412487-bafc-4fbf-b631-f5ec2b2b91a9)
+![PAmPAlini Game by Saba Zdenek 2025](https://github.com/user-attachments/assets/0b2aa698-d3cb-414e-8646-ceea29b9f7ba)
 🐘 - Eliška 🐒 - Sofie 🦒 - Katka 🦍 - Kong 🦁 - Max 🐊 - Croc 🦅 - Bert 🧸 - Little B. 🦛 - Matylda 🐍 - Žofka
 
 PAmPAlini - A Fun Target-Clicking Game
