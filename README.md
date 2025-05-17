@@ -17,7 +17,7 @@ Customizable Icons: Choose from a variety of animal emojis (e.g., , , , etc.).
 
 Leaderboard: Tracks top 10 scores for each mode, saved locally in your browser.
 
-Visual Effects: Animated hearts, pulsating icons, and a colorful countdown.
+Visual Effects: pulsating icons, and a colorful countdown.
 
 Audio: Click sound effects (online) with a fallback for offline play.
 
