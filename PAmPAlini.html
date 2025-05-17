@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAmPAlini</title>
     <style>
-        /* Původní CSS beze změn */
         body {
             margin: 0;
             height: 100vh;
@@ -87,7 +86,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: girlfriend;
+            align-items: center;
             font-family: "Brush Script MT", cursive;
         }
 
@@ -132,7 +131,7 @@
             gap: 10px;
         }
 
-        . minimizes-switch-step {
+        .icon-switch-step {
             font-size: 20px;
             color: #00aaff;
             font-family: "Brush Script MT", cursive;
@@ -516,11 +515,12 @@
 
     <audio id="clickSound" preload="auto"></audio>
     <audio id="backgroundMusic" src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" loop></audio>
+    <audio id="welcomeEndMusic" src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" loop></audio>
 
     <script>
         let crosshair, heart, scoreElement, gameOverElement, restartMenu, yesButton, noButton, leaderboard, leaderboardList;
         let welcomeScreen, playerNameInput, startGameButton, countdownElement, langCZButton, langPLButton, langENButton, pulsatingIcon;
-        let clickSound, backgroundMusic; // Přidána proměnná pro backgroundMusic
+        let clickSound, backgroundMusic, welcomeEndMusic;
         let score = 0;
         let gameActive = false;
         let fallingHeartsInterval;
@@ -612,6 +612,15 @@
             });
         }
 
+        function tryPlayMusic(audioElement, errorMessage) {
+            audioElement.play().catch(error => {
+                console.log(errorMessage, error);
+                document.addEventListener('click', () => {
+                    audioElement.play().catch(err => console.log('Druhý pokus o přehrání selhal:', err));
+                }, { once: true });
+            });
+        }
+
         function initWelcome() {
             welcomeScreen = document.getElementById('welcomeScreen');
             playerNameInput = document.getElementById('playerName');
@@ -625,7 +634,8 @@
             crosshair = document.getElementById('crosshair');
             pulsatingIcon = document.getElementById('pulsatingIcon');
             clickSound = document.getElementById('clickSound');
-            backgroundMusic = document.getElementById('backgroundMusic'); // Inicializace backgroundMusic
+            backgroundMusic = document.getElementById('backgroundMusic');
+            welcomeEndMusic = document.getElementById('welcomeEndMusic');
 
             setClickSoundSource();
 
@@ -672,7 +682,9 @@
             leaderboard.style.display = 'block';
             updateLanguage();
 
-            backgroundMusic.volume = 0.3; // Nastavení hlasitosti jako v "VLAJKY SVĚTA"
+            backgroundMusic.volume = 0.3;
+            welcomeEndMusic.volume = 0.3;
+            tryPlayMusic(welcomeEndMusic, 'Nepodařilo se přehrát uvítací hudbu:');
 
             const waveBanner = document.getElementById('waveBanner');
             setTimeout(() => {
@@ -740,7 +752,8 @@
             document.querySelector('.wave-container').style.display = 'none';
             leaderboard.style.display = 'none';
             document.getElementById('pampaliniInfo').style.display = 'none';
-            backgroundMusic.play().catch(() => console.log('Nelze přehrát hudbu')); // Přehrání hudby při startu
+            welcomeEndMusic.pause();
+            backgroundMusic.play().catch(() => console.log('Nelze přehrát herní hudbu'));
             startCountdown();
         }
 
@@ -784,11 +797,14 @@
 
         function handleYesClick() {
             clearInterval(fallingHeartsInterval);
+            backgroundMusic.pause();
+            welcomeEndMusic.play().catch(() => console.log('Nelze přehrát uvítací hudbu'));
             resetToWelcome();
         }
 
         function handleNoClick() {
             clearInterval(fallingHeartsInterval);
+            welcomeEndMusic.pause();
             showThankYouAndClose();
         }
 
@@ -917,7 +933,8 @@
             gameOverElement.style.display = 'block';
             restartMenu.style.display = 'block';
             leaderboard.style.display = 'block';
-            backgroundMusic.pause(); // Pauza hudby při ukončení hry
+            backgroundMusic.pause();
+            tryPlayMusic(welcomeEndMusic, 'Nepodařilo se přehrát hudbu na game over:');
             if (isSlowMode) {
                 updateLeaderboardSlow(score, playerName, currentIcon);
             } else {
@@ -1119,6 +1136,7 @@
                 </div>
                 <audio id="clickSound" preload="auto"></audio>
                 <audio id="backgroundMusic" src="https://www.bensound.com/bensound-music/bensound-ukulele.mp3" loop></audio>
+                <audio id="welcomeEndMusic" src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" loop></audio>
             `;
 
             initWelcome();
@@ -1133,7 +1151,7 @@
             `;
             document.body.style.backgroundColor = 'white';
             document.body.style.cursor = 'auto';
-            backgroundMusic.pause(); // Pauza hudby při ukončení
+            backgroundMusic.pause();
             setTimeout(() => window.close(), 2000);
         }
 
