@@ -70,9 +70,7 @@ Open index.html in a web browser.
 No additional dependencies or setup required – it’s ready to play!
 
 Credits
-Creator: Zdeněk Sába
-
-AI Assistance: Grok by xAI
+Creator: Zdeněk Sába and AI assistance.
 
 Year: 2025
 
