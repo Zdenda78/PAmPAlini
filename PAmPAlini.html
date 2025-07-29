@@ -14,7 +14,6 @@
             position: relative;
             font-family: Arial, sans-serif;
         }
-
         .switch-container {
             width: 80px;
             height: 30px;
@@ -28,7 +27,6 @@
             top: 20px;
             left: calc(50% + 300px);
         }
-
         .switch {
             width: 28px;
             height: 28px;
@@ -40,15 +38,12 @@
             transition: left 0.3s ease;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
-
         .switch-container.active {
             background-color: #f44336;
         }
-
         .switch-container.active .switch {
             left: calc(100% - 29px);
         }
-
         .switch-status {
             position: absolute;
             top: 55px;
@@ -60,7 +55,6 @@
             color: #00aaff;
             z-index: 30;
         }
-
         .heart {
             width: 2cm;
             height: 2cm;
@@ -75,7 +69,6 @@
             -moz-user-select: none;
             -ms-user-select: none;
         }
-
         .welcome-screen {
             position: absolute;
             top: 50%;
@@ -89,7 +82,6 @@
             align-items: center;
             font-family: "Brush Script MT", cursive;
         }
-
         .language-switch {
             position: absolute;
             top: 20px;
@@ -98,7 +90,6 @@
             display: flex;
             gap: 10px;
         }
-
         .language-switch button {
             font-size: 16px;
             padding: 5px 10px;
@@ -109,17 +100,14 @@
             cursor: pointer;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
-
         .language-switch button:hover {
             background-color: #ff0066;
             color: white;
         }
-
         .language-switch button.active {
             background-color: #00aaff;
             color: white;
         }
-
         .icon-switch-container {
             position: absolute;
             top: 20px;
@@ -130,18 +118,15 @@
             align-items: center;
             gap: 10px;
         }
-
         .icon-switch-step {
             font-size: 20px;
             color: #00aaff;
             font-family: "Brush Script MT", cursive;
         }
-
         .icon-switch {
             display: flex;
             gap: 5px;
         }
-
         .icon-btn {
             font-size: 20px;
             padding: 5px;
@@ -151,11 +136,9 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
         .icon-btn:hover {
             background-color: #ff0066;
         }
-
         .pulsating-heart {
             width: 520px;
             height: 560px;
@@ -169,7 +152,6 @@
             transform: translate(-50%, -50%);
             z-index: 10;
         }
-
         .input-container {
             position: absolute;
             top: calc(50% + 6.5cm);
@@ -181,14 +163,12 @@
             align-items: center;
             gap: 10px;
         }
-
         .input-step {
             font-size: 24px;
             color: #00aaff;
             margin-right: 10px;
             font-family: "Brush Script MT", cursive;
         }
-
         .welcome-screen input {
             font-size: 24px;
             padding: 5px;
@@ -198,7 +178,6 @@
             background-color: rgba(255, 255, 255, 0.8);
             font-family: "Brush Script MT", cursive;
         }
-
         .welcome-screen button {
             font-size: 24px;
             padding: 10px 20px;
@@ -211,11 +190,9 @@
             white-space: nowrap;
             font-family: "Brush Script MT", cursive;
         }
-
         .welcome-screen button:hover {
             background-color: #ff0066;
         }
-
         .countdown {
             position: absolute;
             top: 50%;
@@ -228,13 +205,11 @@
             opacity: 1;
             font-family: "Brush Script MT", cursive;
         }
-
         @keyframes growAndFade {
             0% { font-size: 72px; opacity: 1; }
             80% { font-size: 200px; opacity: 1; }
             100% { font-size: 220px; opacity: 0; }
         }
-
         .crosshair {
             width: 50px;
             height: 50px;
@@ -245,14 +220,12 @@
             z-index: 50;
             display: block;
         }
-
         .crosshair::before,
         .crosshair::after {
             content: '';
             position: absolute;
             background-color: #00aaff;
         }
-
         .crosshair::before {
             width: 100%;
             height: 2px;
@@ -260,7 +233,6 @@
             left: 0;
             transform: translateY(-50%);
         }
-
         .crosshair::after {
             width: 2px;
             height: 100%;
@@ -268,7 +240,6 @@
             left: 50%;
             transform: translateX(-50%);
         }
-
         .score {
             position: absolute;
             top: 10px;
@@ -278,7 +249,6 @@
             z-index: 10;
             font-family: "Brush Script MT", cursive;
         }
-
         .game-timer {
             position: absolute;
             top: 10px;
@@ -287,8 +257,8 @@
             color: #000;
             z-index: 10;
             font-family: "Brush Script MT", cursive;
+            display: none;
         }
-
         .game-over {
             position: absolute;
             top: 40%;
@@ -303,7 +273,6 @@
             font-family: "Brush Script MT", cursive;
             font-weight: 900;
         }
-
         .restart-menu {
             position: absolute;
             top: 60%;
@@ -316,7 +285,6 @@
             z-index: 10;
             font-family: "Brush Script MT", cursive;
         }
-
         .restart-menu a {
             margin: 0 20px;
             text-decoration: none;
@@ -324,11 +292,9 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-
         .restart-menu a:hover {
             color: #ff0066;
         }
-
         .leaderboard {
             position: absolute;
             top: 20px;
@@ -341,19 +307,16 @@
             z-index: 10;
             font-family: "Brush Script MT", cursive;
         }
-
         .leaderboard h2 {
             margin: 0 0 10px;
             font-size: 20px;
             text-align: center;
         }
-
         .leaderboard ol {
             margin: 0;
             padding: 0;
             list-style-type: none;
         }
-
         .leaderboard li {
             margin: 5px 0;
             font-size: 16px;
@@ -361,37 +324,30 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .leaderboard li .name {
             text-align: left;
         }
-
         .leaderboard li .points {
             text-align: right;
         }
-
         @keyframes fadeOut {
             0% { opacity: 1; }
             100% { opacity: 0; }
         }
-
         @keyframes pulse {
             0% { transform: translate(-50%, -50%) scale(1); }
             50% { transform: translate(-50%, -50%) scale(1.1); }
             100% { transform: translate(-50%, -50%) scale(1); }
         }
-
         @keyframes float {
             0% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0); }
         }
-
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
-
         .wave-container {
             display: inline-flex;
             justify-content: center;
@@ -414,25 +370,21 @@
             opacity: 1;
             transition: opacity 1s ease;
         }
-
         @keyframes flameBackground {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
         .wave-letter {
             display: inline-block;
             animation: wave 2s infinite ease-in-out;
         }
-
         @keyframes wave {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             25% { transform: translateY(-15px) rotate(5deg); }
             50% { transform: translateY(0) rotate(0deg); }
             75% { transform: translateY(15px) rotate(-5deg); }
         }
-
         .wave-letter:nth-child(1) { animation-delay: 0s; }
         .wave-letter:nth-child(2) { animation-delay: 0.2s; }
         .wave-letter:nth-child(3) { animation-delay: 0.4s; }
@@ -442,7 +394,6 @@
         .wave-letter:nth-child(7) { animation-delay: 1.2s; }
         .wave-letter:nth-child(8) { animation-delay: 1.4s; }
         .wave-letter:nth-child(9) { animation-delay: 1.6s; }
-
         .pampalini-info {
             position: absolute;
             top: 50%;
@@ -467,7 +418,6 @@
         <button id="langPL">PL</button>
         <button id="langEN">EN</button>
     </div>
-
     <div class="wave-container" id="waveBanner">
         <span class="wave-letter">🅿️</span>
         <span class="wave-letter">🅰️</span>
@@ -479,7 +429,6 @@
         <span class="wave-letter">🅽️</span>
         <span class="wave-letter">🅸️</span>
     </div>
-
     <div class="icon-switch-container" id="iconSwitchContainer">
         <span class="icon-switch-step">1.</span>
         <div class="icon-switch" id="iconSwitch">
@@ -495,12 +444,10 @@
             <button class="icon-btn" data-icon="🐍">🐍</button>
         </div>
     </div>
-
     <div class="switch-container" id="switchContainer">
         <div class="switch" id="switch"></div>
     </div>
     <span class="switch-status" id="switchStatus">Pomalá hra</span>
-
     <div class="welcome-screen" id="welcomeScreen">
         <div class="pulsating-heart" id="pulsatingIcon">🐘</div>
         <div class="input-container">
@@ -509,9 +456,7 @@
             <button id="startGame">Vstup do hry</button>
         </div>
     </div>
-
     <div class="pampalini-info" id="pampaliniInfo"></div>
-
     <div class="countdown" id="countdown"></div>
     <div class="crosshair" id="crosshair"></div>
     <div class="heart" id="heart"></div>
