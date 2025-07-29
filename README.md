@@ -4,7 +4,7 @@
 PAmPAlini - A Fun Target-Clicking Game
 Overview
 PAmPAlini is an engaging HTML5-based game created by Zdeněk Sába in 2025. The goal is simple yet addictive: click as many appearing icons as possible within one minute to achieve the highest score. With multilingual support, customizable icons, and two distinct game modes, PAmPAlini is designed to be enjoyable for players of all ages.
-This game was developed with the assistance of the freely available Grok AI from xAI, showcasing a blend of human creativity and artificial intelligence.
+This game was developed with the assistance of the freely available AI, showcasing a blend of human creativity and artificial intelligence.
 Features
 Multilingual Support: Play in Czech (CZ), Polish (PL), or English (EN).
 
