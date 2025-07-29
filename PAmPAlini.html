@@ -279,6 +279,16 @@
             font-family: "Brush Script MT", cursive;
         }
 
+        .game-timer {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            color: #000;
+            z-index: 10;
+            font-family: "Brush Script MT", cursive;
+        }
+
         .game-over {
             position: absolute;
             top: 40%;
@@ -506,6 +516,7 @@
     <div class="crosshair" id="crosshair"></div>
     <div class="heart" id="heart"></div>
     <div class="score" style="display: none;">Skóre: <span id="score">0</span></div>
+    <div class="game-timer" id="gameTimer" style="display: none;">01:00</div>
     <div class="game-over" id="gameOver">KONEC HRY</div>
     <div class="restart-menu" id="restartMenu">Hrát znovu? <a id="yes">ANO</a> / <a id="no">NE</a></div>
     <div class="leaderboard" id="leaderboard">
@@ -520,7 +531,7 @@
     <script>
         let crosshair, heart, scoreElement, gameOverElement, restartMenu, yesButton, noButton, leaderboard, leaderboardList;
         let welcomeScreen, playerNameInput, startGameButton, countdownElement, langCZButton, langPLButton, langENButton, pulsatingIcon;
-        let clickSound, backgroundMusic, welcomeEndMusic;
+        let clickSound, backgroundMusic, welcomeEndMusic, gameTimer;
         let score = 0;
         let gameActive = false;
         let fallingHeartsInterval;
@@ -534,6 +545,7 @@
         let isSlowMode = true;
         let canSpawn = true;
         let isOnline = true;
+        let gameTimerInterval; // Timer interval variable
 
         const languages = {
             CZ: {
@@ -621,6 +633,29 @@
             });
         }
 
+        function startGameTimer() {
+            let timeLeft = 60; // 1 minute in seconds
+            gameTimer = document.getElementById('gameTimer');
+            gameTimer.style.display = 'block';
+            
+            // Clear any existing timer interval
+            if (gameTimerInterval) {
+                clearInterval(gameTimerInterval);
+            }
+            
+            gameTimerInterval = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                gameTimer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(gameTimerInterval);
+                    endGame();
+                }
+            }, 1000);
+        }
+
         function initWelcome() {
             welcomeScreen = document.getElementById('welcomeScreen');
             playerNameInput = document.getElementById('playerName');
@@ -636,6 +671,7 @@
             clickSound = document.getElementById('clickSound');
             backgroundMusic = document.getElementById('backgroundMusic');
             welcomeEndMusic = document.getElementById('welcomeEndMusic');
+            gameTimer = document.getElementById('gameTimer');
 
             setClickSoundSource();
 
@@ -797,6 +833,7 @@
 
         function handleYesClick() {
             clearInterval(fallingHeartsInterval);
+            clearInterval(gameTimerInterval); // Clear the timer interval
             backgroundMusic.pause();
             welcomeEndMusic.play().catch(() => console.log('Nelze přehrát uvítací hudbu'));
             resetToWelcome();
@@ -804,6 +841,7 @@
 
         function handleNoClick() {
             clearInterval(fallingHeartsInterval);
+            clearInterval(gameTimerInterval); // Clear the timer interval
             welcomeEndMusic.pause();
             showThankYouAndClose();
         }
@@ -815,6 +853,7 @@
             restartMenu = document.getElementById('restartMenu');
             leaderboard = document.getElementById('leaderboard');
             leaderboardList = document.getElementById('leaderboardList');
+            gameTimer = document.getElementById('gameTimer');
 
             score = 0;
             scoreElement.textContent = score;
@@ -839,7 +878,7 @@
             document.addEventListener('mousedown', checkShot);
 
             spawnHeart();
-            setTimeout(endGame, 60000);
+            startGameTimer(); // Start the game timer
             updateLanguage();
 
             initRestartMenu();
@@ -1128,6 +1167,7 @@
                 <div class="crosshair" id="crosshair"></div>
                 <div class="heart" id="heart"></div>
                 <div class="score" style="display: none;">${languages[currentLanguage].scoreText}<span id="score">0</span></div>
+                <div class="game-timer" id="gameTimer">01:00</div>
                 <div class="game-over" id="gameOver">${languages[currentLanguage].gameOverText}</div>
                 <div class="restart-menu" id="restartMenu">${languages[currentLanguage].restartText}<a id="yes">${languages[currentLanguage].yesText}</a> / <a id="no">${languages[currentLanguage].noText}</a></div>
                 <div class="leaderboard" id="leaderboard">
