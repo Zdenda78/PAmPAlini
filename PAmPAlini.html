@@ -917,6 +917,7 @@
             gameOverElement.style.display = 'block';
             restartMenu.style.display = 'block';
             leaderboard.style.display = 'block';
+            gameTimer.style.display = 'none'; // Hide the game timer when the game ends
             backgroundMusic.pause();
             tryPlayMusic(welcomeEndMusic, 'Nepodařilo se přehrát hudbu na game over:');
             if (isSlowMode) {
