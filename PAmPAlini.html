@@ -490,7 +490,7 @@
         let isSlowMode = true;
         let canSpawn = true;
         let isOnline = true;
-        let gameTimerInterval; // Timer interval variable
+        let gameTimerInterval;
 
         const languages = {
             CZ: {
@@ -583,7 +583,6 @@
             gameTimer = document.getElementById('gameTimer');
             gameTimer.style.display = 'block';
             
-            // Clear any existing timer interval
             if (gameTimerInterval) {
                 clearInterval(gameTimerInterval);
             }
@@ -721,8 +720,7 @@
         function startGame() {
             playerName = playerNameInput.value.trim();
             if (playerName === '') {
-                alert(languages[currentLanguage].nameAlert);
-                return;
+                return; // Hra se nespustí, žádné upozornění
             }
 
             welcomeScreen.style.display = 'none';
@@ -778,15 +776,19 @@
 
         function handleYesClick() {
             clearInterval(fallingHeartsInterval);
-            clearInterval(gameTimerInterval); // Clear the timer interval
+            clearInterval(gameTimerInterval);
             backgroundMusic.pause();
             welcomeEndMusic.play().catch(() => console.log('Nelze přehrát uvítací hudbu'));
-            resetToWelcome();
+            gameOverElement.style.display = 'none';
+            restartMenu.style.display = 'none';
+            score = 0;
+            scoreElement.textContent = score;
+            resetToWelcome(); // Vrátí na uvítací obrazovku
         }
 
         function handleNoClick() {
             clearInterval(fallingHeartsInterval);
-            clearInterval(gameTimerInterval); // Clear the timer interval
+            clearInterval(gameTimerInterval);
             welcomeEndMusic.pause();
             showThankYouAndClose();
         }
@@ -823,7 +825,7 @@
             document.addEventListener('mousedown', checkShot);
 
             spawnHeart();
-            startGameTimer(); // Start the game timer
+            startGameTimer();
             updateLanguage();
 
             initRestartMenu();
@@ -917,7 +919,7 @@
             gameOverElement.style.display = 'block';
             restartMenu.style.display = 'block';
             leaderboard.style.display = 'block';
-            gameTimer.style.display = 'none'; // Hide the game timer when the game ends
+            gameTimer.style.display = 'none';
             backgroundMusic.pause();
             tryPlayMusic(welcomeEndMusic, 'Nepodařilo se přehrát hudbu na game over:');
             if (isSlowMode) {
