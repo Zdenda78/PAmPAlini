@@ -569,13 +569,17 @@
             });
         }
 
-        function tryPlayMusic(audioElement, errorMessage) {
-            audioElement.play().catch(error => {
-                console.log(errorMessage, error);
-                document.addEventListener('click', () => {
-                    audioElement.play().catch(err => console.log('Druhý pokus o přehrání selhal:', err));
-                }, { once: true });
-            });
+        function tryPlayMusicIfNotPlaying(audioElement, errorMessage) {
+            if (audioElement.paused) {
+                audioElement.play().catch(error => {
+                    console.log(errorMessage, error);
+                    document.addEventListener('click', () => {
+                        if (audioElement.paused) {
+                            audioElement.play().catch(err => console.log('Druhý pokus o přehrání selhal:', err));
+                        }
+                    }, { once: true });
+                });
+            }
         }
 
         function startGameTimer() {
@@ -664,7 +668,7 @@
 
             backgroundMusic.volume = 0.3;
             welcomeEndMusic.volume = 0.3;
-            tryPlayMusic(welcomeEndMusic, 'Nepodařilo se přehrát uvítací hudbu:');
+            tryPlayMusicIfNotPlaying(welcomeEndMusic, 'Nepodařilo se přehrát uvítací hudbu:');
 
             const waveBanner = document.getElementById('waveBanner');
             setTimeout(() => {
@@ -732,7 +736,7 @@
             leaderboard.style.display = 'none';
             document.getElementById('pampaliniInfo').style.display = 'none';
             welcomeEndMusic.pause();
-            backgroundMusic.play().catch(() => console.log('Nelze přehrát herní hudbu'));
+            tryPlayMusicIfNotPlaying(backgroundMusic, 'Nelze přehrát herní hudbu');
             startCountdown();
         }
 
@@ -778,18 +782,19 @@
             clearInterval(fallingHeartsInterval);
             clearInterval(gameTimerInterval);
             backgroundMusic.pause();
-            welcomeEndMusic.play().catch(() => console.log('Nelze přehrát uvítací hudbu'));
+            tryPlayMusicIfNotPlaying(welcomeEndMusic, 'Nepodařilo se přehrát uvítací hudbu');
             gameOverElement.style.display = 'none';
             restartMenu.style.display = 'none';
             score = 0;
             scoreElement.textContent = score;
-            resetToWelcome(); // Vrátí na uvítací obrazovku
+            resetToWelcome();
         }
 
         function handleNoClick() {
             clearInterval(fallingHeartsInterval);
             clearInterval(gameTimerInterval);
-            welcomeEndMusic.pause();
+            backgroundMusic.pause();
+            tryPlayMusicIfNotPlaying(welcomeEndMusic, 'Nepodařilo se přehrát uvítací hudbu');
             showThankYouAndClose();
         }
 
@@ -921,7 +926,7 @@
             leaderboard.style.display = 'block';
             gameTimer.style.display = 'none';
             backgroundMusic.pause();
-            tryPlayMusic(welcomeEndMusic, 'Nepodařilo se přehrát hudbu na game over:');
+            tryPlayMusicIfNotPlaying(welcomeEndMusic, 'Nepodařilo se přehrát hudbu na game over:');
             if (isSlowMode) {
                 updateLeaderboardSlow(score, playerName, currentIcon);
             } else {
@@ -1136,10 +1141,13 @@
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; font-size: 48px; color: #00aaff; font-family: 'Brush Script MT', cursive;">
                     ${languages[currentLanguage].endGameMessage}
                 </div>
+                <audio id="welcomeEndMusic" src="https://www.bensound.com/bensound-music/bensound-tenderness.mp3" loop></audio>
             `;
             document.body.style.backgroundColor = 'white';
             document.body.style.cursor = 'auto';
-            backgroundMusic.pause();
+            const finalWelcomeEndMusic = document.getElementById('welcomeEndMusic');
+            finalWelcomeEndMusic.volume = 0.3;
+            tryPlayMusicIfNotPlaying(finalWelcomeEndMusic, 'Nepodařilo se přehrát uvítací hudbu při ukončení:');
             setTimeout(() => window.close(), 2000);
         }
 
